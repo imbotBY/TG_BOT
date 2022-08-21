@@ -42,7 +42,7 @@ public class Bot extends TelegramLongPollingBot {
         list.add(keyboard2);
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
         replyKeyboardMarkup.setKeyboard(list);
-        sendMessage.setText(update.getMessage().getText());
+        sendMessage.setText("It's "+update.getMessage().getText());
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
 
         switch (update.getMessage().getText())  {
@@ -61,9 +61,13 @@ public class Bot extends TelegramLongPollingBot {
             case "Bird" :
                 sendPhoto.setPhoto(new InputFile("https://www.allaboutbirds.org/news/wp-content/uploads/2020/07/STanager-Shapiro-ML.jpg?page=Search"));
                 break;
+            default:
+                sendMessage.setText("Please enter Dog, Cat, Mouse, Frog or Bird");
+                break;
         }
 
         try {
+            execute(sendMessage);
             execute(sendPhoto);
         } catch (TelegramApiException e) {
             System.out.println(e.getMessage());
