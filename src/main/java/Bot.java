@@ -45,25 +45,18 @@ public class Bot extends TelegramLongPollingBot {
         sendMessage.setText("It's "+update.getMessage().getText());
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
 
-        switch (update.getMessage().getText())  {
-            case "Dog" :
-                sendPhoto.setPhoto(new InputFile("https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg"));
-                break;
-            case "Cat" :
-                sendPhoto.setPhoto(new InputFile("https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"));
-                break;
-            case "Mouse" :
-                sendPhoto.setPhoto(new InputFile("https://static4.depositphotos.com/1005805/350/i/600/depositphotos_3504882-stock-photo-gray-mouse.jpg"));
-                break;
-            case "Frog" :
-                sendPhoto.setPhoto(new InputFile("https://www.aquariumofpacific.org/images/exhibits/Magnificent_Tree_Frog_900.jpg"));
-                break;
-            case "Bird" :
-                sendPhoto.setPhoto(new InputFile("https://www.allaboutbirds.org/news/wp-content/uploads/2020/07/STanager-Shapiro-ML.jpg?page=Search"));
-                break;
-            default:
-                sendMessage.setText("Please enter Dog, Cat, Mouse, Frog or Bird");
-                break;
+        switch (update.getMessage().getText()) {
+            case "Dog" ->
+                    sendPhoto.setPhoto(new InputFile("https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg"));
+            case "Cat" ->
+                    sendPhoto.setPhoto(new InputFile("https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"));
+            case "Mouse" ->
+                    sendPhoto.setPhoto(new InputFile("https://static4.depositphotos.com/1005805/350/i/600/depositphotos_3504882-stock-photo-gray-mouse.jpg"));
+            case "Frog" ->
+                    sendPhoto.setPhoto(new InputFile("https://www.aquariumofpacific.org/images/exhibits/Magnificent_Tree_Frog_900.jpg"));
+            case "Bird" ->
+                    sendPhoto.setPhoto(new InputFile("https://www.allaboutbirds.org/news/wp-content/uploads/2020/07/STanager-Shapiro-ML.jpg?page=Search"));
+            default -> sendMessage.setText("Please enter Dog, Cat, Mouse, Frog or Bird");
         }
 
         try {
